@@ -1,0 +1,329 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Roboto+Slab:wght@300;400;700&display=swap');
+
+
+
+body, html {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    background-color: #f0e6d2;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.book {
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    position: relative;
+    perspective: 1500px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.book-page {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s, opacity 0.6s;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    display: flex;
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+.cover-page {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.cover-page .content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.page {
+    width: 50%;
+    height: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.left {
+    border-right: 1px solid #e0e0e0;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+    color: #8b4513;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.8em;
+    border-bottom: 2px solid #8b4513;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.copyright {
+    margin-top: 20px;
+    font-size: 0.8em;
+    color: #8b4513;
+}
+
+.nav-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+
+.nav-link {
+    padding: 10px 15px;
+    background-color: #8b4513;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+    text-align: center;
+    min-width: 100px;
+}
+
+.nav-link:hover {
+    background-color: #a0522d;
+    transform: translateY(-2px);
+}
+.ingredient-card, .instruction-card {
+    display: flex;
+    align-items: center;
+    background-color: #f9f5eb;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.ingredient-card img, .instruction-card img {
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 5px;
+  
+}
+
+.ingredient-card p, .instruction-card p {
+    margin: 0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+.nutrition-info {
+    background-color: #f9f5eb;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.nutrition-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #d3c0a9;
+    text-align: center;
+}
+
+.nutrition-item:last-child {
+    border-bottom: none;
+}
+
+.nutrition-item span {
+    font-weight: bold;
+}
+.thank-you {
+    text-align: center;
+    padding: 20px;
+    background-color: #f0e6d2;
+    border-radius: 10px;
+}
+
+
+.recipe-info {
+    display: flex;
+    justify-content: space-between; 
+    margin: 20px 0;
+    animation: fadeIn 0.8s ease-out;
+    width: 80%; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.time-card {
+    background-color: #f0e6d2;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    width: 28%; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+  .time-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+  }
+  
+  .time-card h3 {
+    margin: 0;
+    color: #8b4513;
+    font-size: 1.2em;
+  }
+  
+  .time-card .time {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #a0522d;
+    margin: 10px 0 0;
+  }
+  .page-right p {
+    text-align: center;
+    margin: 10px 0;
+}
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  #cover:checked ~ .cover-page {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+#page1:checked ~ .book-page:nth-of-type(2),
+#page2:checked ~ .book-page:nth-of-type(3),
+#page3:checked ~ .book-page:nth-of-type(4) {
+    opacity: 1;
+    transform: translateX(0);
+    z-index: 1;
+}
+
+@media (max-width: 2000px) {
+    body {
+        padding: 10px;
+    }
+
+    .book {
+        width: 100%;
+        height: auto;
+        perspective: none;
+    }
+
+    .book-page {
+        position: relative;
+        height: auto;
+        display: none;
+        transform: none !important;
+        opacity: 1;
+        flex-direction: column;
+    }
+
+    .cover-page {
+        display: block;
+    }
+
+    .cover-page .content {
+        padding: 20px;
+    }
+
+    #page1:checked ~ .book-page:nth-of-type(2),
+    #page2:checked ~ .book-page:nth-of-type(3),
+    #page3:checked ~ .book-page:nth-of-type(4) {
+        display: block;
+    }
+
+    #page1:checked ~ .cover-page,
+    #page2:checked ~ .cover-page,
+    #page3:checked ~ .cover-page,
+    #page1:checked ~ .book-page:nth-of-type(1),
+    #page2:checked ~ .book-page:nth-of-type(2),
+    #page3:checked ~ .book-page:nth-of-type(3) {
+        display: none;
+    }
+
+    .page {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .left {
+        border-right: none;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .nav-buttons {
+        position: static;
+        margin-top: 20px;
+        padding: 0 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .nav-link {
+        margin: 0;
+        padding: 12px 20px;
+        font-size: 16px;
+        flex: 1 1 auto;
+        min-width: 120px;
+        max-width: 45%;
+    }
+}
+
+    h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 1.5em;
+        text-align: center;
+    }
